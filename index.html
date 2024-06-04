@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        fetch("https://pool-api-alpha.vercel.app")
+        fetch("https://api.openweathermap.org/energy/1.0/locations?appid={API key}")
         .then(response=> response.json())
         .then(data => {
             console.log(data);

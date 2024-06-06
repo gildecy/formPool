@@ -7,39 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script>
-     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('poolForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Previne o envio padrão do formulário
-
-        const formData = {
-            nome: document.getElementById('nome').value,
-            cloro: document.getElementById('cloro').value,
-            barrilha: document.getElementById('barrilha').value,
-            algicida: document.getElementById('algicida').value,
-            clarificante: document.getElementById('clarificante').value
-        };
-
-        fetch('https://pool-api-alpha.vercel.app/api/v1/pool/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            // Aqui você pode adicionar lógica adicional, como limpar o formulário ou exibir uma mensagem de sucesso
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            // Aqui você pode adicionar lógica para tratar erros
-        });
-    });
-});
-</script>
+    
 
  
     </script>
@@ -64,5 +32,40 @@ document.addEventListener('DOMContentLoaded', function() {
             <button type="submit">Registrar</button>
         </form>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('poolForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Previne o envio padrão do formulário
+
+                const formData = {
+                    nome: document.getElementById('nome').value,
+                    cloro: document.getElementById('cloro').value,
+                    barrilha: document.getElementById('barrilha').value,
+                    algicida: document.getElementById('algicida').value,
+                    clarificante: document.getElementById('clarificante').value
+                };
+
+                fetch('https://pool-api-alpha.vercel.app/api/v1/pool/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    // Aqui você pode adicionar lógica adicional, como limpar o formulário ou exibir uma mensagem de sucesso
+                    alert('Formulário enviado com sucesso!');
+                    document.getElementById('poolForm').reset(); // Limpa o formulário
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Ocorreu um erro ao enviar o formulário.');
+                    // Aqui você pode adicionar lógica para tratar erros
+                });
+            });
+        });
+    </script>
 </body>
 </html>

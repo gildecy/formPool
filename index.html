@@ -8,34 +8,39 @@
 </head>
 <body>
     <script>
-     document.getElementById('poolForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Previne o envio padrão do formulário
+     <script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('poolForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Previne o envio padrão do formulário
 
-            const formData = {
-                nome: document.getElementById('nome').value,
-                cloro: document.getElementById('cloro').value,
-                barrilha: document.getElementById('barrilha').value,
-                algicida: document.getElementById('algicida').value,
-                clarificante: document.getElementById('clarificante').value
-            };
+        const formData = {
+            nome: document.getElementById('nome').value,
+            cloro: document.getElementById('cloro').value,
+            barrilha: document.getElementById('barrilha').value,
+            algicida: document.getElementById('algicida').value,
+            clarificante: document.getElementById('clarificante').value
+        };
 
-            fetch('https://pool-api-alpha.vercel.app', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                // Aqui você pode adicionar lógica adicional, como limpar o formulário ou exibir uma mensagem de sucesso
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                // Aqui você pode adicionar lógica para tratar erros
-            });
+        fetch('https://pool-api-alpha.vercel.app/api/v1/pool/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Aqui você pode adicionar lógica adicional, como limpar o formulário ou exibir uma mensagem de sucesso
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            // Aqui você pode adicionar lógica para tratar erros
         });
+    });
+});
+</script>
+
  
     </script>
     <div class="container">

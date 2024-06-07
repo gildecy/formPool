@@ -28,7 +28,7 @@
 
             <label for="clarificante">Clarificante:</label>
             <input type="text" id="clarificante" name="clarificante" step="0.01" required>
-            <input type="date" id="data" name="data">
+            <input type="date" id="date" name="data">
 
             <button type="submit">Salvar</button>
         </form>
@@ -39,7 +39,7 @@
                 event.preventDefault(); // Previne o envio padrão do formulário
 
                 const formData = {
-                    data: document.getElementById('data').value,
+                    date: document.getElementById('date').value,
                     nome: document.getElementById('nome').value,
                     cloro: document.getElementById('cloro').value,
                     barrilha: document.getElementById('barrilha').value,

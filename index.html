@@ -43,7 +43,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('poolForm').addEventListener('submit', function(event) {
                 event.preventDefault(); // Previne o envio padrão do formulário
-
+//coleta dados do forumario 
                 const formData = {
                     date: document.getElementById('date').value,
                     nome: document.getElementById('nome').value,
@@ -52,7 +52,7 @@
                     algicida: document.getElementById('algicida').value,
                     clarificante: document.getElementById('clarificante').value
                 };
-
+//envia dados para api via fetch
                 fetch('https://pool-api-alpha.vercel.app/api/v1/pool/', {
                     method: 'POST',
                     headers: {

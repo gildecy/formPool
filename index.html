@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Registro</title>
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    
 
- 
+
+</head>
+
+<body>
+
+
+
+
 
     <div class="container">
-        <h2>Cleanpool</h2>
-        <form id="poolForm">
+        <h2>Registro de Piscina</h2>
+        <form id="poolForm" action="">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
 
@@ -28,16 +37,22 @@
 
             <label for="clarificante">Clarificante:</label>
             <input type="text" id="clarificante" name="clarificante" step="0.01" required>
-             <input type="date" id="date" name="data" step="0.01" required>
-           
+            <input type="date" id="date" name="data" step="0.01" required>
 
-            <button type="submit">Salvar</button>
-
+            <button id="submit">registrar</button>
             
+            <label id="fotos"></label>
+            <div>
+                <input type="file"><br>
+                <textarea></textarea>
+                <img width="100" alt="Prévia da imagem...">
+                <button type="button">Download</button>
+            </div>
         </form>
     </div>
+
     <script>
-        function formatDate(dateParam){
+function formatDate(dateParam){
     const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
 const date = new Date(dateParam)
 
@@ -47,41 +62,71 @@ const formattedDate = new Intl.DateTimeFormat('pt-BR', options).format(adjustedD
 return formattedDate
 }
 
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('poolForm').addEventListener('submit', function(event) {
+
+
+       
+
+        document.addEventListener('DOMContentLoaded', function () {
+         // file.addEventListener('change',previewFile);
+        //  enviar.addEventListener('click',alert('sucesso'))
+
+            document.getElementById('poolForm').addEventListener('submit', function (event) {
                 event.preventDefault(); // Previne o envio padrão do formulário
-//coleta dados do forumario 
+
+
+
+                //coleta os dados do formulario
+
                 const formData = {
-                    date:document.getElementByid('date').value),
+                    
+                    date: formatDate(document.getElementById('date').value),
                     nome: document.getElementById('nome').value,
                     cloro: document.getElementById('cloro').value,
                     barrilha: document.getElementById('barrilha').value,
                     algicida: document.getElementById('algicida').value,
                     clarificante: document.getElementById('clarificante').value
+
+                    
                 };
-//envia dados para api via fetch
-                fetch('https://pool-api-alpha.vercel.app/api/v1/pool/', {
+                
+                //envia  os dados para API via fetch
+
+               fetch ('https://pool-api-alpha.vercel.app/api/v1/pool/', {
+
+
+                               
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
+                    
                     body: JSON.stringify(formData)
                 })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    // Aqui você pode adicionar lógica adicional, como limpar o formulário ou exibir uma mensagem de sucesso
-                    alert('Envio confirmado!');
-                    document.getElementById('poolForm').reset(); // Limpa o formulário
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    alert('Ocorreu um erro ao enviar o formulário.');
-                    // Aqui você pode adicionar lógica para tratar erros
-                });
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Success:', data);
+                        // Aqui você pode adicionar lógica adicional, como limpar o formulário ou exibir uma mensagem de sucesso
+                        alert('Formulário enviado com sucesso!');
+                        document.getElementById('poolForm').reset(); // Limpa o formulário
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert('Ocorreu um erro ao enviar o formulário.');
+
+                        // Aqui você pode adicionar lógica para tratar erros
+                    });
             });
         });
+
+        
+
+
     </script>
+
+
+
+
+
 </body>
+
 </html>

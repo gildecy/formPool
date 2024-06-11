@@ -37,12 +37,23 @@
         </form>
     </div>
     <script>
+        function formatDate(dateParam){
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+const date = new Date(dateParam)
+
+const adjustedDate = new Date(date.getTime() + 3 * 60 * 60 * 1000);
+
+const formattedDate = new Intl.DateTimeFormat('pt-BR', options).format(adjustedDate);
+return formattedDate
+}
+
+        
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('poolForm').addEventListener('submit', function(event) {
                 event.preventDefault(); // Previne o envio padrão do formulário
 //coleta dados do forumario 
                 const formData = {
-                    data:document.getElementByid('date').value, 
+                    date:document.getElementByid('date').value),
                     nome: document.getElementById('nome').value,
                     cloro: document.getElementById('cloro').value,
                     barrilha: document.getElementById('barrilha').value,

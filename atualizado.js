@@ -71,10 +71,9 @@ cript>
                     file: previewText(document.getElementById('file').value),
                     date: formatDate(document.getElementById('date').value),
                     nome: document.getElementById('nome').value,
+                    ph: document.getElementById('ph').value,
                     cloro: document.getElementById('cloro').value,
-                    barrilha: document.getElementById('barrilha').value,
-                    algicida: document.getElementById('algicida').value,
-                    clarificante: document.getElementById('clarificante').value
+                
 
 
                 };

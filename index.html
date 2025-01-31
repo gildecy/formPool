@@ -29,15 +29,12 @@
             <label for="cloro">Cloro:</label>
             <input type="text" id="cloro" name="cloro" step="0.01" required>
 
-            <label for="barrilha">Barrilha:</label>
+            <label for="ph">ph:</label>
             <input type="text" id="barrilha" name="barrilha" step="0.01" required>
 
-            <label for="algicida">Algicida:</label>
-            <input type="text" id="algicida" name="algicida" step="0.01" required>
+          
 
-            <label for="clarificante">Clarificante:</label>
-            <input type="text" id="clarificante" name="clarificante" step="0.01" required>
-            <input type="date" id="date" name="data" step="0.01" required>
+           
 
             <button id="submit">registrar</button>
             
@@ -81,10 +78,9 @@ return formattedDate
                     
                     date: formatDate(document.getElementById('date').value),
                     nome: document.getElementById('nome').value,
+                    ph: document.getElementById('ph').value,
                     cloro: document.getElementById('cloro').value,
-                    barrilha: document.getElementById('barrilha').value,
-                    algicida: document.getElementById('algicida').value,
-                    clarificante: document.getElementById('clarificante').value
+                    
 
                     
                 };

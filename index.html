@@ -26,11 +26,11 @@
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
 
-            <label for="cloro">Cloro:</label>
-            <input type="text" id="cloro" name="cloro" step="0.01" required>
-
             <label for="ph">ph:</label>
-            <input type="text" id="barrilha" name="barrilha" step="0.01" required>
+            <input type="text" id="ph" name="ph" step="0.01" required>
+
+            <label for="cloro">ph:</label>
+            <input type="text" id="cloro" name="cloro" step="0.01" required>
 
           
 
@@ -87,7 +87,7 @@ return formattedDate
                 
                 //envia  os dados para API via fetch
 
-               fetch ('https://pool-api-alpha.vercel.app/api/v1/pool/', {
+               fetch ('https://pool-api-alpha.vercel.app', {
 
 
                                

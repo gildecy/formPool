@@ -71,8 +71,8 @@ cript>
                     file: previewText(document.getElementById('file').value),
                     date: formatDate(document.getElementById('date').value),
                     nome: document.getElementById('nome').value,
-                    ph: document.getElementById('ph').value,
-                    cloro: document.getElementById('cloro').value,
+                    ph: document.getElementById('cloro').value,
+                    cloro: document.getElementById('ph').value,
                 
 
 

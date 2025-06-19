@@ -70,7 +70,7 @@ cript>
 
                     file: previewText(document.getElementById('file').value),
                     date: formatDate(document.getElementById('date').value),
-                    nome: document.getElementById('nome').value,
+                    nome: document.querySelector('nome').value,
                     ph: document.getElementById('cloro').value,
                     cloro: document.getElementById('ph').value,
                 

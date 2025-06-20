@@ -68,11 +68,11 @@ cript>
                 const formData = {
 
 
-                    file: previewText(document.getElementById('file').value),
-                    date: formatDate(document.getElementById('date').value),
+                    file: previewText(document.querySelector('file').value),
+                    date: formatDate(document.querySelector('date').value),
                     nome: document.querySelector('nome').value,
-                    ph: document.getElementById('cloro').value,
-                    cloro: document.getElementById('ph').value,
+                    ph: document.querySelector('cloro').value,
+                    cloro: document.querySelector('ph').value,
                 
 
 

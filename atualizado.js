@@ -31,12 +31,7 @@ cript>
                 link.click();
             }
 
-            // essa função busca a imagem da função downloadfile e converte na base64
-            function previewText({ target }) {
-                let base64 = target.value.replace(/^data:image\/[a-z]+;base64,/, "");
-                preview.src = `data:image/png;base64,${base64}`;
-            }
-        
+           
 
         function formatDate(dateParam) {
             const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
@@ -68,7 +63,7 @@ cript>
                 const formData = {
 
 
-                    file: previewText(document.guetElementById('file').value),
+                 
                     date: formatDate(document.guetElementById('date').value),
                     nome: document.guetElementById('nome').value,
                     ph: document.guetElementById('cloro').value,
